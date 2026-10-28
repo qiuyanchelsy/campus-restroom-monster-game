@@ -161,18 +161,14 @@ const puzzleAction=action;action=a=>{
       }
       return;
     }
-    const wrong=chosen.filter(n=>!answers.has(n));
-    const missed=l.answer.filter(n=>!chosen.includes(n));
-    if(wrong.length||missed.length){
+    const isCorrect=chosen.every(n=>answers.has(n));
+    if(!isCorrect){
       state.errors++;
-      document.querySelectorAll('[data-tile]').forEach(button=>{
-        const n=l.nums[+button.dataset.tile];
-        button.classList.toggle('wrong',state.selected.includes(+button.dataset.tile)&&!answers.has(n));
-      });
+      document.querySelectorAll('[data-tile]').forEach(button=>button.classList.remove('wrong','correct'));
       const feedback=document.getElementById('feedback');
       if(feedback){
         feedback.classList.add('is-error');
-        feedback.textContent=`🔍 再檢查一次：選錯 ${wrong.length} 個，漏選 ${missed.length} 個。本題共有 ${l.answer.length} 個正確答案。紅色數字是不符合條件的選項。`;
+        feedback.textContent=`🔍 本題共有 ${l.answer.length} 個正確答案。你選取的數量正確，請再檢查條件並自行取消或更換不符合的選項。`;
       }
       return;
     }
