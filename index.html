@@ -35,11 +35,123 @@ body.home-screen{overflow:hidden;background:#17265a}.home-screen .topbar,.home-s
 @media (orientation:portrait){body{overflow:hidden;background:#17265a}.shell{height:100dvh;display:grid;place-items:center;padding:24px}.shell:before{content:'請將 iPad 橫放\A 以開始「校園廁所怪獸冒險」';white-space:pre;text-align:center;color:#fff;font-weight:1000;font-size:clamp(22px,6vw,38px);line-height:1.7}.shell>*{display:none!important}}
 .character-box .sprite{height:112px;width:112px}.level-head:has(+ .reward + .mission){min-height:118px}.level-head:has(+ .reward + .mission) .character-box{top:42px}.level-head:has(+ .reward + .mission) .character-box .sprite{height:126px;width:126px}.card:has(.mission){display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto 1fr;gap:10px;align-items:stretch}.card:has(.mission) .level-head{grid-column:1/-1}.card:has(.mission) .reward,.card:has(.mission) .mission{margin:0;height:100%;min-width:0}.card:has(.mission) .reward{display:flex;flex-direction:column;justify-content:center}.card:has(.mission) .mission{display:flex;flex-direction:column}.card:has(.mission) .choice{flex:1;min-height:0;display:flex;align-items:center}.password-reminder{display:block;margin-top:10px;color:#805d12;font-size:clamp(13px,1.25vw,16px);line-height:1.45}.password-reminder::before{content:'✏️ '}
 .class-seat-input{font:inherit;width:min(420px,100%);display:block;margin:7px 0 12px;border:2px solid #b9c8eb;border-radius:13px;padding:10px 12px;color:#26335b}
-.ending-screen{background-image:url('assets/ending-guardians-bg.png')!important;background-size:cover!important;background-position:center!important}.ending-screen .cert{background:rgba(255,253,245,.94);box-shadow:0 12px 28px rgba(32,47,100,.22)}@media (orientation:landscape){.ending-screen .guardians{display:grid!important;position:absolute;inset:52px 22px auto;pointer-events:none}.ending-screen .guardians>div{background:transparent;padding:0}.ending-screen .guardians img{height:104px;filter:drop-shadow(0 5px 6px #31547766)}.ending-screen .guardians strong{display:none}.ending-screen .cert{position:relative;z-index:2;max-width:840px;margin:10px auto 0}}
+.ending-screen{background-image:url('assets/ending-guardians-bg-v3.png')!important;background-size:cover!important;background-position:center!important}.ending-screen .cert{background:rgba(255,253,245,.94);box-shadow:0 12px 28px rgba(32,47,100,.22)}@media (orientation:landscape){.ending-screen .guardians{display:grid!important;position:absolute;inset:52px 22px auto;pointer-events:none}.ending-screen .guardians>div{background:transparent;padding:0}.ending-screen .guardians img{height:104px;filter:drop-shadow(0 5px 6px #31547766)}.ending-screen .guardians strong{display:none}.ending-screen .cert{position:relative;z-index:2;max-width:840px;margin:10px auto 0}}
 .ending-screen .cert{background:transparent!important;border:0!important;box-shadow:none!important}.ending-screen .certificate-note{background:transparent!important;border:0!important}.ending-screen .cert h2,.ending-screen .cert h1,.ending-screen .cert p,.ending-screen .cert h3{filter:drop-shadow(0 2px 1px #fff)}@media (orientation:landscape){.ending-screen .guardians{display:block!important;position:absolute!important;inset:0!important;z-index:3;pointer-events:none}.ending-screen .guardians>div{position:absolute!important;width:220px;height:220px;background:transparent!important;padding:0!important}.ending-screen .guardians>div:nth-child(1){left:5%;top:4%}.ending-screen .guardians>div:nth-child(2){right:5%;top:4%}.ending-screen .guardians>div:nth-child(3){left:5%;bottom:3%}.ending-screen .guardians>div:nth-child(4){right:5%;bottom:3%}.ending-screen .guardians img{width:100%!important;height:100%!important;object-fit:contain;filter:drop-shadow(0 8px 8px #31547788)!important}.ending-screen .cert{position:relative;z-index:4;max-width:780px;margin:18px auto 0;padding:14px!important}.ending-screen .certificate-note{margin:9px auto!important;padding:4px!important}}
 .cover-hotspot.current:before{content:'';position:absolute;inset:8% 7% 18%;border:4px solid #ffe04d;border-radius:50%;box-shadow:0 0 0 7px #fff7a780,0 0 22px 10px #ffd84c;animation:questGlow 1.25s ease-in-out infinite;pointer-events:none}.cover-hotspot.current img{filter:drop-shadow(0 0 9px #fff) drop-shadow(0 0 18px #ffd84c)}.cover-hotspot.done img{filter:drop-shadow(0 0 8px #64daa8) brightness(1.06)}.cover-hotspot.done span{background:#168b61}.cover-guide{position:absolute;z-index:6;left:50%;bottom:18%;transform:translateX(-50%);background:#173461e6;border:3px solid #fff;color:#fff;padding:6px 16px;border-radius:999px;font-size:clamp(12px,1.8vw,21px);font-weight:1000;white-space:nowrap;box-shadow:0 4px 0 #0e2144}.home-screen .cover-launch{top:75%;height:10%}@keyframes questGlow{0%,100%{opacity:.68;transform:scale(.94)}50%{opacity:1;transform:scale(1.05)}}
 /* 首頁回歸單純地圖：背景既有怪獸就是唯一的關卡入口 */
 .home-screen .cover-launch{display:block!important;z-index:8;top:76%;height:10%;font-size:clamp(16px,3vw,31px)}.home-screen .cover-help{display:none!important}.home-screen .cover-hotspot{background:transparent!important;animation:monsterFloat 2.5s ease-in-out infinite!important}.home-screen .cover-hotspot img{display:block!important;width:100%;height:calc(100% - 25px);object-fit:contain;filter:drop-shadow(0 7px 5px #15225b88)}.home-screen .cover-hotspot span{display:block!important;font-size:clamp(10px,1.25vw,17px);white-space:nowrap;background:#173461e6;border:2px solid #fff;border-radius:20px;padding:2px 7px;color:#fff}.home-screen .cover-hotspot.current:before{display:block!important}.home-screen .cover-hotspot.locked:after{display:block!important}.home-screen .cover-hotspot.locked img{filter:brightness(0) drop-shadow(0 4px 4px #000)}.home-screen .cover-hotspot.locked span{background:#272b3dcc;color:#d9dbe5}.home-screen .cover-hotspot.done img{filter:drop-shadow(0 0 8px #64daa8) brightness(1.06)}.home-screen .cover-hotspot.done span{background:#168b61}.cover-guide{display:none!important}
+/* 答題不以顏色揭露正解：即使舊標記殘留，選取格仍維持一致的藍色。 */
+.tile.wrong,.tile.correct{background:#ccecff!important;border-color:#227ce7!important;color:#124eaa!important;box-shadow:inset 0 0 0 2px #54a9ee!important}
+/* 第一關示範：場景感任務面板 */
+body.toilet-level .card{background:rgba(255,255,255,.78)!important;border-color:rgba(255,255,255,.95)!important;box-shadow:0 12px 30px rgba(17,88,139,.28)}
+body.toilet-level .task{background:linear-gradient(90deg,rgba(230,250,255,.96),rgba(255,255,255,.8));border-left-color:#20bde8;box-shadow:0 4px 12px rgba(48,159,210,.18)}
+body.toilet-level .character-box{background:rgba(255,255,255,.72);border-radius:22px;padding:5px 9px;box-shadow:0 5px 16px rgba(28,105,167,.2)}
+@media (orientation:landscape){
+  /* 第一關：左側沉浸場景，右側任務操作面板 */
+  body.toilet-level .shell{padding:5px 14px 5px 53vw}
+  body.toilet-level .topbar{display:flex;position:fixed;z-index:30;left:61vw;right:19vw;top:4px;height:38px;margin:0;justify-content:center}
+  body.toilet-level .topbar .brand{display:none}
+  body.toilet-level .topbar .pill{padding:7px 10px;font-size:13px;margin:0}
+  body.toilet-level .shell>#app{height:calc(100dvh - 52px);margin-top:47px}
+  body.toilet-level .row{position:fixed;z-index:23;left:53vw;right:14px;top:5px;height:39px;gap:5px;white-space:nowrap}
+  body.toilet-level .row .pill{padding:7px 10px;font-size:13px}
+  body.toilet-level .card{width:100%;height:calc(100% - 28px);margin:0;padding:13px 17px}
+  body.toilet-level .level-head{min-height:92px}
+  body.toilet-level .level-head h2{font-size:24px}
+  body.toilet-level .pickGrid{max-width:420px}
+  body.toilet-level .character-box{position:fixed!important;z-index:20;left:20vw!important;top:35vh!important;right:auto!important;background:transparent!important;box-shadow:none!important;padding:0!important;animation:monsterFloat 2.5s ease-in-out infinite}
+  body.toilet-level .character-box .sprite{width:220px;height:220px;filter:drop-shadow(0 10px 10px rgba(10,76,120,.34))}
+  body.toilet-level .character-box b{display:none}
+  body.toilet-level .card:has(.mission){grid-template-rows:112px 1fr;gap:10px}
+  body.toilet-level .card:has(.mission) .level-head{min-height:112px}
+  body.toilet-level .card:has(.mission) .reward{background:linear-gradient(145deg,#fff8cf,#fffdf3);border:3px solid #f4c54b;box-shadow:0 5px 0 #e3ac2f;padding:14px}
+  body.toilet-level .card:has(.mission) .reward h3{margin:0 0 8px;color:#a66b08;font-size:21px}
+  body.toilet-level .card:has(.mission) .reward strong{display:block;margin-top:10px;padding:9px 11px;border-radius:13px;background:#ffde64;color:#714900;font-size:20px;text-align:center}
+  body.toilet-level .card:has(.mission) .reward p{margin:5px 0;font-size:15px;line-height:1.45}
+  body.toilet-level .card:has(.mission) .mission{background:rgba(232,255,247,.93);padding:12px}
+  body.toilet-level .card:has(.mission) .mission h3{font-size:20px;margin:0 0 4px}
+  body.toilet-level .card:has(.mission) .mission p{font-size:14px;line-height:1.45;margin:4px 0}
+  body.toilet-level .card:has(.mission) .choice{min-height:40px;flex:0 0 auto;margin:4px 0;padding:7px 9px;font-size:14px}
+  body.toilet-level .card:has(.mission) .mission .feedback{min-height:0;margin:4px 0;font-size:13px;padding:6px 8px}
+  body.toilet-level .card:has(.mission) .mission .btn{align-self:flex-start;margin-top:2px}
+  /* 沖沖怪數學密碼卡：AI 插圖卡面搭配可精確顯示的動態文字 */
+  body.toilet-level .card:has(.mission) .reward{background:url('assets/ui/chong-password-card.png') center/cover no-repeat;border:0;box-shadow:none;padding:13px 18px 13px 45%;min-height:0}
+  body.toilet-level .card:has(.mission) .reward h3{font-size:18px;text-shadow:0 1px 0 #fff}
+  body.toilet-level .card:has(.mission) .reward p{font-size:13px;line-height:1.38;color:#394462;font-weight:800}
+  body.toilet-level .card:has(.mission) .reward strong{font-size:16px;line-height:1.25;box-shadow:0 2px 0 #d6a91c}
+  body.toilet-level .card:has(.mission) .reward .password-reminder{font-size:12px;color:#714900}
+}
+@media (orientation:landscape){
+  /* 第一關完成數學題後：左密碼卡、右 DFC 行動挑戰 */
+  body.toilet-mission .shell{padding:5px 14px}
+  body.toilet-mission .topbar{left:39vw;right:39vw}
+  body.toilet-mission .row{left:14px;right:14px}
+  body.toilet-mission .shell>#app{height:calc(100dvh - 52px);margin-top:47px}
+  body.toilet-mission .progress{display:none}
+  body.toilet-mission .card:has(.mission){width:100%;height:100%;background:rgba(255,255,255,.42)!important;border-color:rgba(255,255,255,.72)!important;grid-template-columns:1fr 1fr;grid-template-rows:96px 1fr;gap:14px;padding:12px}
+  body.toilet-mission .card:has(.mission) .level-head{min-height:0!important;height:96px!important;padding:9px 16px;background:rgba(255,255,255,.83);border:2px solid rgba(255,255,255,.95);border-radius:20px;align-items:center}
+  body.toilet-mission .card:has(.mission) .level-head .eyebrow{font-size:16px}
+  body.toilet-mission .card:has(.mission) .level-head h2{font-size:25px;margin:1px 0}
+  body.toilet-mission .card:has(.mission) .level-head p{font-size:15px;line-height:1.35;margin:2px 0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:75vw}
+  body.toilet-mission .card:has(.mission) .character-box{display:none!important}
+  body.toilet-mission .card:has(.mission) .reward{grid-column:1;grid-row:2;padding:7% 4% 6% 48%;min-height:0;overflow:hidden}
+  body.toilet-mission .card:has(.mission) .reward h3{font-size:clamp(18px,1.55vw,24px);line-height:1.2;margin:0 0 8px}
+  body.toilet-mission .card:has(.mission) .reward p{font-size:clamp(14px,1.12vw,17px);line-height:1.42;margin:5px 0;overflow-wrap:anywhere}
+  body.toilet-mission .card:has(.mission) .reward strong{font-size:clamp(16px,1.38vw,21px);line-height:1.25;margin-top:8px;padding:7px 9px}
+  body.toilet-mission .card:has(.mission) .reward .password-reminder{font-size:clamp(12px,1vw,14px);margin-top:5px}
+  body.toilet-mission .card:has(.mission) .mission{grid-column:2;grid-row:2;min-height:0;overflow:hidden;padding:16px;background:rgba(232,255,247,.97)}
+  body.toilet-mission .card:has(.mission) .mission h3{font-size:25px;margin-bottom:8px}
+  body.toilet-mission .card:has(.mission) .mission p{font-size:17px;line-height:1.55;margin:8px 0}
+  body.toilet-mission .card:has(.mission) .choice{font-size:16px;min-height:48px;padding:8px 12px;margin:5px 0}
+  body.toilet-mission .card:has(.mission) .mission .feedback{font-size:15px;padding:9px 11px;margin:7px 0}
+  body.toilet-mission .card:has(.mission) .mission .btn{font-size:17px;padding:9px 16px;margin-top:auto}
+}
+@media (orientation:landscape){
+  /* 第 2～4 關沿用雙欄流程，但保留各自的中性密碼卡。 */
+  body.other-level .card:has(.mission) .reward{background:linear-gradient(145deg,#fff8cf,#fffdf3)!important;border:3px solid #f4c54b!important;box-shadow:0 5px 0 #e3ac2f!important;padding:22px 28px!important}
+  body.other-level .card:has(.mission) .reward h3{font-size:24px!important}
+  body.other-level .card:has(.mission) .reward p{font-size:17px!important;line-height:1.65!important}
+  body.other-level .card:has(.mission) .reward strong{font-size:21px!important}
+}
+@media (orientation:landscape){
+  body.toilet-mission .card:has(.mission) .reward{background-image:var(--password-card)!important;background-size:cover!important;background-position:center!important;border:0!important;box-shadow:none!important;padding-left:48%!important}
+  body.lock-screen{background-image:url('assets/scenes/final-lock-control-room-v1.png')!important;background-size:cover!important;background-position:center!important}
+  body.lock-screen .card{height:calc(100% - 42px);padding:10px 18px;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;background:transparent!important;border:0!important;box-shadow:none!important}
+  body.lock-screen .monster{font-size:48px}.lock-screen .card h2{font-size:27px;margin:2px}.lock-screen .card p{margin:4px}.lock-screen .digits{margin:8px}.lock-screen .digit{height:55px;width:55px;font-size:27px}.lock-screen .keypad{grid-template-columns:repeat(3,58px);gap:5px}.lock-screen .key{height:38px;font-size:19px}.lock-screen .lock-actions{margin-top:6px}.lock-screen .feedback{min-height:0;margin:5px auto;max-width:650px}
+  body.lock-screen .lock-actions{display:flex;gap:9px;align-items:center;justify-content:center;flex-wrap:nowrap}
+  body.lock-screen .lock-actions .btn{white-space:nowrap;margin:0;padding:8px 13px}
+}
+/* 隱藏第五關：左圖右提案，所有選項與完成鍵固定在 iPad 橫向畫面內。 */
+@media (orientation:landscape){
+  body.final-screen .shell{padding:5px 14px}
+  body.final-screen .shell>#app{height:calc(100dvh - 46px);overflow:hidden}
+  body.final-screen .final-layout{height:100%;display:grid;grid-template-columns:minmax(0,48%) minmax(0,52%);gap:14px;align-items:stretch}
+  body.final-screen .final-victory-art{min-width:0;height:100%;border-radius:23px;overflow:hidden;border:3px solid rgba(255,255,255,.95);box-shadow:0 9px 24px rgba(20,73,126,.28);background:#eaf8ff;display:flex;align-items:center;justify-content:center}
+  body.final-screen .final-victory-art img{width:100%;height:100%;display:block;object-fit:cover;object-position:center}
+  body.final-screen .final-layout>.card{height:100%;min-height:0;margin:0;padding:13px 18px;display:flex;flex-direction:column;overflow:hidden;background:rgba(255,255,255,.95)}
+  body.final-screen .final-layout>.card h2{font-size:25px;margin:0 0 4px}
+  body.final-screen .final-layout>.card>p{font-size:15px;line-height:1.35;margin:3px 0 7px}
+  body.final-screen .final-layout>.card .choice{font-size:15px;line-height:1.2;min-height:39px;padding:6px 10px;margin:2px 0;flex:0 0 auto}
+  body.final-screen .final-layout>.card label{font-size:14px;margin-top:4px}
+  body.final-screen .final-layout>.card textarea{height:52px!important;min-height:52px!important;max-height:52px!important;margin:4px 0!important;padding:7px 10px!important;resize:none!important}
+  body.final-screen .final-layout>.card .btn{align-self:flex-start;font-size:16px;padding:8px 14px;margin:2px 0}
+  body.final-screen .final-layout>.card .feedback{min-height:0;font-size:13px;line-height:1.25;padding:5px 8px;margin:3px 0 0}
+}
+/* 證書頁固定為單一 iPad 畫面，保留下載與回到地圖兩個按鈕。 */
+@media (orientation:landscape){
+  body.ending-screen .shell>#app{height:calc(100dvh - 46px);overflow:hidden}
+  body.ending-screen .guardians{display:none!important}
+  body.ending-screen .cert{height:calc(100% - 10px)!important;min-height:0!important;max-width:760px!important;margin:5px auto 0!important;padding:7px 16px!important;display:flex!important;flex-direction:column;align-items:center;justify-content:center;overflow:hidden}
+  body.ending-screen .cert>span{font-size:48px!important;line-height:1}
+  body.ending-screen .cert h2{font-size:27px!important;margin:2px 0!important}
+  body.ending-screen .cert .cert-name{font-size:30px!important;margin:3px 0!important}
+  body.ending-screen .cert h1{font-size:28px!important;margin:3px 0!important}
+  body.ending-screen .cert h3{font-size:18px!important;margin:5px 0!important}
+  body.ending-screen .cert p{font-size:15px!important;line-height:1.25!important;margin:3px 0!important}
+  body.ending-screen .cert .certificate-note{font-size:14px!important;line-height:1.22!important;margin:5px auto!important;padding:4px!important;max-width:610px}
+  body.ending-screen .cert .actions{margin-top:4px!important;display:flex!important;justify-content:center;gap:8px}
+  body.ending-screen .cert .actions .btn{font-size:15px!important;padding:8px 13px!important;margin:0!important;white-space:nowrap}
+}
 </style>
 </head><body><main class="shell"><header class="topbar"><div class="brand">🚽 校園廁所怪獸冒險 <span class="tiny">秋燕老師設計</span></div><button class="pill" id="resetBtn">↺ 新一局（換題）</button></header><section id="app" aria-live="polite"></section><footer class="footer">跨領域學習 5上數學因數倍數&amp;DNA如何打掃廁所 · 秋燕老師設計 · iPad 觸控版</footer></main>
 <script>
@@ -175,7 +287,12 @@ const puzzleAction=action;action=a=>{
   }
   return puzzleAction(a);
 };
+const toiletArtRender=render;render=()=>{toiletArtRender();const isSceneLevel=state.screen==='level',levelIndex=state.unlocked,isToiletLevel=isSceneLevel&&levelIndex===0,isToiletMission=isSceneLevel&&state.step==='mission',isBlocked=isSceneLevel&&state.step==='puzzle';document.body.classList.toggle('toilet-level',isSceneLevel);document.body.classList.toggle('toilet-mission',isToiletMission);document.body.classList.toggle('other-level',isSceneLevel&&levelIndex>0);if(isSceneLevel){const clean=['assets/scenes/toilet-mission-v2.png','assets/scenes/wash-clean-v2.png','assets/scenes/trash-clean-v2.png','assets/scenes/vent-clean-v2.png'],blocked=['assets/scenes/toilet-blocked-dark-v2.png','assets/scenes/wash-wet-dark-v2.png','assets/scenes/trash-mess-dark-v2.png','assets/scenes/vent-odor-dark-v2.png'],background=(isBlocked?blocked:clean)[levelIndex],shade=isBlocked?'rgba(10,27,55,.18)':'rgba(225,248,255,.38)';document.body.style.backgroundImage=`linear-gradient(${shade},${shade}),url('${background}')`}};
 const puzzleHintRender=render;render=()=>{puzzleHintRender();updatePuzzleHint()};
+const finalTaskRender=render;render=()=>{finalTaskRender();document.body.classList.toggle('lock-screen',state.screen==='lock');if(state.screen==='level'&&state.step==='mission'){const cards=['assets/ui/chong-password-card-v2.png','assets/ui/water-password-card-v2.png','assets/ui/trash-password-card-v2.png','assets/ui/odor-password-card-v2.png'];document.body.style.setProperty('--password-card',`url('${cards[state.unlocked]}')`);if(state.recovering){const tag=document.querySelector('.level-tag'),title=document.querySelector('.mission h3'),feedback=document.querySelector('.mission #feedback');if(tag)tag.textContent=`密碼回想 ${state.unlocked+1} / 4`;if(title)title.textContent='🧠 密碼回想｜DFC 真實情境挑戰';if(feedback)feedback.textContent='答對這題，就能重新查看本關密碼。'}}};
+const recoveryAction=action;action=a=>{if(a==='forgot'){state.recovering=true;state.unlocked=0;state.step='mission';state.choice=null;state.screen='level';render();return}if(a==='checkChoice'&&state.recovering){const l=levels[state.unlocked];if(state.choice===null){alertMsg('請先選擇一項行動。');return}if(state.choice!==l.right){alertMsg('再想一想：選擇能改善環境、兼顧安全與責任的行動。');return}if(state.unlocked<3){state.unlocked++;state.step='mission';state.choice=null;render()}else{state.recovering=false;state.screen='lock';state.code='';render();const feedback=document.getElementById('feedback');if(feedback)feedback.textContent=`✅ 四題 DFC 都答對了！密碼依序是：${getCode()}。請輸入後啟動系統。`}return}return recoveryAction(a)};
+const lockButtonRender=render;render=()=>{lockButtonRender();if(state.screen==='lock'){const unlock=document.querySelector('[data-action="unlock"]');if(unlock&&!unlock.parentElement.classList.contains('lock-actions')){const actions=document.createElement('div');actions.className='actions lock-actions';actions.style.justifyContent='center';unlock.before(actions);actions.append(unlock);const forgot=document.createElement('button');forgot.className='btn secondary';forgot.dataset.action='forgot';forgot.textContent='🧠 忘記密碼？';forgot.addEventListener('click',()=>action('forgot'));actions.append(forgot)}}};
+const finalLayoutRender=render;render=()=>{finalLayoutRender();document.body.classList.toggle('final-screen',state.screen==='final');if(state.screen!=='final')return;const app=document.getElementById('app'),hero=app.querySelector('.hero'),proposalCard=app.querySelector('.card');if(!hero||!proposalCard||app.querySelector('.final-layout'))return;const layout=document.createElement('section');layout.className='final-layout';const art=document.createElement('section');art.className='final-victory-art';art.innerHTML='<img src="assets/ui/final-guardian-story-card-v2.png" alt="四位廁所守護員完成冒險，真正的廁所守護者是誰？">';layout.append(art,proposalCard);hero.remove();app.append(layout)};
 document.getElementById('resetBtn').addEventListener('click',()=>{if(!confirm('確定開始新一局嗎？將清除本局進度，重新抽題並產生新的四位數密碼。'))return;state={screen:'home',unlocked:0,passed:[],selected:[],choice:null,step:'puzzle',code:'',errors:0,finalChoice:null,playerName:state.playerName||'',round:createRound()};levels=makeLevels(state.round);render()});render();
 })();
 </script></body></html>
