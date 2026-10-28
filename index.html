@@ -149,6 +149,18 @@ const puzzleAction=action;action=a=>{
   if(a==='check'&&state.screen==='level'&&state.step==='puzzle'){
     const l=levels[state.unlocked],answers=new Set(l.answer);
     const chosen=state.selected.map(i=>l.nums[i]);
+    if(chosen.length!==l.answer.length){
+      state.errors++;
+      document.querySelectorAll('[data-tile]').forEach(button=>button.classList.remove('wrong','correct'));
+      const feedback=document.getElementById('feedback'),difference=Math.abs(chosen.length-l.answer.length);
+      if(feedback){
+        feedback.classList.add('is-error');
+        feedback.textContent=chosen.length>l.answer.length
+          ?`⚠️ 你選了 ${chosen.length} 個，但本題只有 ${l.answer.length} 個正確答案。請先取消 ${difference} 個選項，再檢查答案。`
+          :`💡 你目前選了 ${chosen.length} 個；本題共有 ${l.answer.length} 個正確答案，還要再找 ${difference} 個。`;
+      }
+      return;
+    }
     const wrong=chosen.filter(n=>!answers.has(n));
     const missed=l.answer.filter(n=>!chosen.includes(n));
     if(wrong.length||missed.length){
