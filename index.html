@@ -122,6 +122,52 @@ const certificateProblemRender=render;render=()=>{certificateProblemRender();con
 const classSeatRender=render;render=()=>{classSeatRender();const proposalLabel=document.querySelector('label[for="proposal"]');if(proposalLabel&&!document.getElementById('classSeat')){proposalLabel.insertAdjacentHTML('beforebegin','<label for="classSeat"><b>🏫 班級座號</b></label><input class="class-seat-input" id="classSeat" maxlength="20" placeholder="例如：50112" value="">');const input=document.getElementById('classSeat');input.value=state.classSeat||'';input.addEventListener('input',()=>{state.classSeat=input.value.trim();save()})}const completion=[...document.querySelectorAll('.cert p')].find(p=>p.textContent.includes('恭喜完成'));if(completion)completion.textContent=`恭喜${state.classSeat||'小小守護者'}完成「校園廁所怪獸冒險」`};
 function downloadCertificate(){const c=document.createElement('canvas'),x=c.getContext('2d');c.width=1600;c.height=1000;const g=x.createLinearGradient(0,0,1600,1000);g.addColorStop(0,'#e8f8ff');g.addColorStop(1,'#fff5ce');x.fillStyle=g;x.fillRect(0,0,1600,1000);x.strokeStyle='#dcae4b';x.lineWidth=18;x.strokeRect(35,35,1530,930);x.strokeStyle='#fff';x.lineWidth=5;x.strokeRect(56,56,1488,888);x.textAlign='center';x.fillStyle='#996217';x.font='bold 66px "Microsoft JhengHei"';x.fillText('校園廁所守護者證書',800,180);x.fillStyle='#173f87';x.font='bold 78px "Microsoft JhengHei"';x.fillText(state.playerName||'小小守護者',800,295);x.fillStyle='#26335b';x.font='40px "Microsoft JhengHei"';x.fillText(`恭喜${state.classSeat||'小小守護者'}完成「校園廁所怪獸冒險」`,800,375);x.font='bold 36px "Microsoft JhengHei"';x.fillText('✓ 質數　✓ 因數　✓ 公因數　✓ 公倍數',800,450);x.fillStyle='#996217';x.font='bold 34px "Microsoft JhengHei"';x.fillText(`最想改善的問題：${selectedProblem()}`,800,535);x.fillStyle='#fff7d4';x.fillRect(180,600,1240,170);x.strokeStyle='#e2bc68';x.lineWidth=4;x.strokeRect(180,600,1240,170);x.fillStyle='#26335b';x.font='bold 30px "Microsoft JhengHei"';x.fillText('我的 DFC 改善提案',800,650);x.font='30px "Microsoft JhengHei"';const p=state.proposal||'';for(let i=0;i<p.length;i+=28)x.fillText(p.slice(i,i+28),800,705+(i/28)*40);x.fillStyle='#1f9974';x.font='bold 32px "Microsoft JhengHei"';x.fillText('真正維持廁所乾淨的力量，是每個人的行動！',800,870);const a=document.createElement('a');a.download='校園廁所守護者證書.png';a.href=c.toDataURL('image/png');document.body.appendChild(a);a.click();a.remove()}
 const endingRender=render;render=()=>{endingRender();document.body.classList.toggle('ending-screen',state.screen==='won')};
+/* 數學題：以答案數量引導作答，避免靠「全部都點」猜答案。 */
+function updatePuzzleHint(){
+  if(state.screen!=='level'||state.step!=='puzzle')return;
+  const l=levels[state.unlocked],total=l.answer.length,chosen=state.selected.length,remaining=total-chosen;
+  const feedback=document.getElementById('feedback');
+  if(!feedback)return;
+  feedback.classList.remove('is-error');
+  if(chosen===0)feedback.textContent=`💡 本題共有 ${total} 個正確答案。可選多個答案，點第二次可取消選取。`;
+  else if(remaining>0)feedback.textContent=`💡 本題共有 ${total} 個正確答案；目前已選 ${chosen} 個，還要找出 ${remaining} 個。`;
+  else if(remaining===0)feedback.textContent=`💡 目前已選 ${chosen} 個，剛好等於本題的答案數量，可以按「檢查答案」。`;
+  else feedback.textContent=`⚠️ 本題共有 ${total} 個正確答案；目前已選 ${chosen} 個，請取消 ${Math.abs(remaining)} 個後再檢查。`;
+}
+document.addEventListener('click',event=>{
+  const tile=event.target.closest('[data-tile]');
+  if(!tile)return;
+  event.stopImmediatePropagation();
+  const i=+tile.dataset.tile;
+  state.selected=state.selected.includes(i)?state.selected.filter(x=>x!==i):[...state.selected,i];
+  document.querySelectorAll('[data-tile]').forEach(button=>button.classList.remove('wrong','correct'));
+  tile.classList.toggle('selected',state.selected.includes(i));
+  tile.setAttribute('aria-pressed',String(state.selected.includes(i)));
+  updatePuzzleHint();
+},true);
+const puzzleAction=action;action=a=>{
+  if(a==='check'&&state.screen==='level'&&state.step==='puzzle'){
+    const l=levels[state.unlocked],answers=new Set(l.answer);
+    const chosen=state.selected.map(i=>l.nums[i]);
+    const wrong=chosen.filter(n=>!answers.has(n));
+    const missed=l.answer.filter(n=>!chosen.includes(n));
+    if(wrong.length||missed.length){
+      state.errors++;
+      document.querySelectorAll('[data-tile]').forEach(button=>{
+        const n=l.nums[+button.dataset.tile];
+        button.classList.toggle('wrong',state.selected.includes(+button.dataset.tile)&&!answers.has(n));
+      });
+      const feedback=document.getElementById('feedback');
+      if(feedback){
+        feedback.classList.add('is-error');
+        feedback.textContent=`🔍 再檢查一次：選錯 ${wrong.length} 個，漏選 ${missed.length} 個。本題共有 ${l.answer.length} 個正確答案。紅色數字是不符合條件的選項。`;
+      }
+      return;
+    }
+  }
+  return puzzleAction(a);
+};
+const puzzleHintRender=render;render=()=>{puzzleHintRender();updatePuzzleHint()};
 document.getElementById('resetBtn').addEventListener('click',()=>{if(!confirm('確定開始新一局嗎？將清除本局進度，重新抽題並產生新的四位數密碼。'))return;state={screen:'home',unlocked:0,passed:[],selected:[],choice:null,step:'puzzle',code:'',errors:0,finalChoice:null,playerName:state.playerName||'',round:createRound()};levels=makeLevels(state.round);render()});render();
 })();
 </script></body></html>
